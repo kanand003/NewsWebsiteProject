@@ -19,6 +19,15 @@ function validateForm() {
     alert("Message must be filled out");
     return false;
   }
+ var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(document.forms["myForm"]["your_email"].value) == false) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
 }
 </script>
 </head>
@@ -68,7 +77,7 @@ function validateForm() {
         <form name="myForm" action="mailto:bakaanime@gmail.com" onsubmit="return validateForm()" method="post">
           <div class="form_settings">
             <p><span>Name</span><input class="contact" type="text" name="your_name" value="" /></p>
-            <p><span>Email Address</span><input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required /></p>
+            <p><span>Email Address</span><input class="contact" type="text" name="your_email" value="" /></p>
             <p><span>Message</span><textarea class="contact textarea" rows="8" cols="50" name="your_enquiry"></textarea></p>
             <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="submit" /></p>
           </div>
